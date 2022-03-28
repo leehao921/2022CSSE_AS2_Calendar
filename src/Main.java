@@ -78,6 +78,7 @@ public class Main {
 				}
 			}
 			if(command == 'E') {
+				// @Felix
 				break;
 			}
 			if(command == 'A') {
@@ -96,10 +97,10 @@ public class Main {
 				}
 			}else if(command == 'B') {
 				// @Felix
-				System.out.println("\n請輸入欲查詢年(格式:yyyy)");
+				System.out.println("\n請輸入欲查詢年(格式:yyyy)&&要大於西元1900年");
 				int year = user_input.nextInt();
 				CalendarSys calendar = new CalendarSys(year);
-				calendar.Convert();
+				calendar.Convert(year);
 			}else if(command == 'C') {
 				// @Weng
 				System.out.println("\n請輸入欲查詢日期(格式:yyyy-mm-dd)");

@@ -1,4 +1,6 @@
 import java.util.Scanner;
+ 
+
 public class Main {
 	static boolean IsCorrectDayFormat(String inputStr) {
 		if(inputStr == "")
@@ -12,8 +14,7 @@ public class Main {
 		}
 		return true;
 	}
-	
-	static boolean IsCorrectFormat(String inputStr) {
+	static boolean IsCorrectDateFormat(String inputStr) {
 		if(inputStr == "")
 			return false;
 		
@@ -73,12 +74,10 @@ public class Main {
 				if(command != 'A' && command != 'B' && command != 'C' && command != 'D' && command != 'E') {
 					correct_input = false;
 					System.out.println("輸入格式錯誤，請輸入欲使用功能所代表的字母，輸入範例: B");
-					System.out.println("您的輸入: " + command);
 					System.out.println("請再試一次~^^\n");
 				}
 			}
 			if(command == 'E') {
-				// @Felix
 				break;
 			}
 			if(command == 'A') {
@@ -87,7 +86,7 @@ public class Main {
 				String date; 
 				do{
 					date = user_input.next();
-				}while(!IsCorrectFormat(date));
+				}while(!IsCorrectDateFormat(date));
 				try{
 					CalendarSys calendar = new CalendarSys(date);
 					calendar.ShowCalendar();
@@ -97,17 +96,17 @@ public class Main {
 				}
 			}else if(command == 'B') {
 				// @Felix
-				System.out.println("\n請輸入欲查詢年(格式:yyyy&&要大於西元1900年)");
+				System.out.println("\n請輸入欲查詢年(格式:yyyy)");
 				int year = user_input.nextInt();
 				CalendarSys calendar = new CalendarSys(year);
-				calendar.Convert(year);
+				calendar.Convert();
 			}else if(command == 'C') {
 				// @Weng
 				System.out.println("\n請輸入欲查詢日期(格式:yyyy-mm-dd)");
 				String date; 
 				do{
 					date = user_input.next();
-				}while(!IsCorrectFormat(date));
+				}while(!IsCorrectDateFormat(date));
 				try{
 					CalendarSys calendar = new CalendarSys();
 					calendar.SearchDate(date);
@@ -118,11 +117,13 @@ public class Main {
 			}else if(command == 'D') {
 				// @Weng
 				System.out.println("\n請輸入往後推算的天數");
+				
 				String day_str;
 				do{
 					day_str = user_input.next();
 				}while(!IsCorrectDayFormat(day_str));
 				int day = Integer.valueOf(day_str);
+				
 				CalendarSys calendar = new CalendarSys();
 				calendar.AddDay(day);
 			}
@@ -133,7 +134,6 @@ public class Main {
 				user_input.close();
 			}
 		}while(quit_system == false);
-		
 		// Quit System
 		// @Felix
 		System.out.println("\nByeBye~~");

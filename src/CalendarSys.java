@@ -38,6 +38,12 @@ public class CalendarSys{
 	    day_ = Integer.valueOf(date_.split("-")[2]);
 	}
 	
+	/***
+	 * Show the Calendar of the date of the CalendarSys
+	 * * Example: [CalendarSys].ShowCalendar() (assume the date of the [CalendarSys] is 2023-04-23), 
+	 *            Console output: (The Calendar of 2023-04), 
+	 * Time estimate: O(1)
+	 */
 	public void ShowCalendar() {
 		// @Weng
 		// TODO
@@ -64,6 +70,12 @@ public class CalendarSys{
 		System.out.print("\n");		
 	}
 	
+	/***
+	 * 
+	 * @param year
+	 * * Example: 
+	 * Time estimate:
+	 */
 	public void Convert(int year) {
 		// @Felix 
 		// TODO
@@ -77,7 +89,13 @@ public class CalendarSys{
 
 	}
 
-	
+	/***
+	 * Calculate #days of the input date is after today, and output to the console
+	 * @param date
+	 * * Example: [CalendarSys].SearchDate(2022-04-02) (assume today is 2022-03-31), 
+	 *            Console output: 2022-04-02 距離今天還有: 2 天, 
+	 * Time estimate: O(1)
+	 */
 	public void SearchDate(String date) {
 		// @Weng
 		// TODO
@@ -90,7 +108,13 @@ public class CalendarSys{
 	    System.out.println(date + " 距離今天還有: " + delta_days + " 天");
 	    
 	}
-	
+	/***
+	 * Calculate the date of today + #days, and output to the console
+	 * @param day
+	 * * Example: [CalendarSys].AddDay(2) (assume today is 2022-03-31),
+	 *            Console output: 往後 2 天是: 2022-04-02, 
+	 * Time estimate: O(1)
+	 */
 	public void AddDay(int day) {
 		// @Weng
 		// TODO

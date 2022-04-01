@@ -2,6 +2,18 @@ import java.util.Scanner;
  
 
 public class Main {
+	/*** 
+	 * Check if input day is valid or not
+	 * @param inputStr
+	 * @return true if inputStr can be converted successfully into integer，
+	 *   otherwise output "輸入天數錯誤: 天數應為數字，請再輸入一次" to the console
+	 *   and return false, notice that if the inputStr is empty, then there's
+	 *   no need to print error message, just simply return false.
+	 * * Example: IsCorrectDayFormat(abc), 
+	 *            Console output: 輸入天數錯誤: 天數應為數字，請再輸入一次,
+	 *            Return: false, 
+	 * Time estimate: O(1)
+	 */
 	static boolean IsCorrectDayFormat(String inputStr) {
 		if(inputStr == "")
 			return false;
@@ -14,6 +26,31 @@ public class Main {
 		}
 		return true;
 	}
+	/***
+	 * Check if input date is valid or not
+	 * @param inputStr
+	 * @return true if the inputStr matches the format of yyyy-mm-dd, 
+	 *   where year should be a four-digit positive number, month should
+	 *   be a 2-digit integer, day should be a 2-digit integer, otherwise, 
+	 *   if the format isn't xxxx-xx-xx, then print 輸入格式錯誤，格式應為 yyyy-mm-dd，請再輸入一次 
+	 *   to the console and return false, else if any of year, month, day
+	 *   isn't number, then print 輸入日期錯誤: 年月日應為數字，請再輸入一次 and
+	 *   return false, finally, if the #digit of year, month, day isn't 4, 2, 2
+	 *   respectively, then print:
+	 *   輸入格式錯誤，格式應為 yyyy-mm-dd
+	 *     -年(y)應為四位數
+	 *     -月(m)應為二位數
+	 *     -日(d)應為二位數
+	 *   to the console, and return false, notice that if inputStr is empty,
+	 *   then there's no need to print anything, just return false.
+	 * * Example 1: IsCorrectDateFormat("aaaa-12-31"), 
+	 *              Console output: 輸入日期錯誤: 年月日應為數字，請再輸入一次, 
+	 *              Return: false, 
+	 * * Example 2: IsCorrectDateFormat("2021-3-31"), 
+	 *              Console output: 輸入格式錯誤，格式應為 yyyy-mm-dd，請再輸入一次, 
+	 *              Return: false, 
+	 * Time estimate: O(1)
+	 */
 	static boolean IsCorrectDateFormat(String inputStr) {
 		if(inputStr == "")
 			return false;

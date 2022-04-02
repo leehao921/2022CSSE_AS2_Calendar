@@ -1,5 +1,4 @@
 import java.util.Scanner;
- 
 
 public class Main {
 	/*** 
@@ -90,7 +89,7 @@ public class Main {
 		}		
 		return true;
 	}
-	public static void main(String[] args) {
+	public static <CalendarSys> void main(String[] args) {
 		boolean quit_system = false;
 		char command = 'E';
 		System.out.println("歡迎使用月曆系統 !");
@@ -135,9 +134,17 @@ public class Main {
 			}else if(command == 'B') {
 				// @Felix
 				System.out.println("\n請輸入欲查詢年(格式:yyyy)&&要大於西元1900年");
-				int year = user_input.nextInt();
-				CalendarSys calendar = new CalendarSys(year);
-				calendar.Convert(year);
+				do{
+					year = user_input.next();
+				}while(!IsCorrectDateFormat(year));
+				try{
+					CalendarSys calendar = new CalendarSys(date);
+					calendar.Convert(year);
+				}
+				catch(Exception e) {
+					System.out.println("您查詢的格式不正確");
+				}
+
 			}else if(command == 'C') {
 				// @Weng
 				System.out.println("\n請輸入欲查詢日期(格式:yyyy-mm-dd)");

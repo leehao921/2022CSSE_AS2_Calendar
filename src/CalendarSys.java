@@ -1,5 +1,6 @@
+package main.src;
+
 import java.time.LocalDate;
-import java.time.Period;
 import java.time.format.DateTimeFormatter;
 import java.time.temporal.ChronoUnit;
 
@@ -73,8 +74,9 @@ public class CalendarSys{
 	/***
 	 * 
 	 * @param year
-	 * * Example: 
-	 * Time estimate:
+	 * * Example: [CalendarSys].Convert(2000) (assume looking for 2000), 
+	 *            Console output: 2000年是庚辰年，屬龍, 
+	 * Time estimate: O(1)
 	 */
 	public void Convert(int year) {
 		// @Felix 

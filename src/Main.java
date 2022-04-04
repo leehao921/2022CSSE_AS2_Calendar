@@ -1,5 +1,5 @@
 import java.util.Scanner;
-
+//import src.Calendar.java;
 public class Main {
 	/*** 
 	 * Check if input day is valid or not
@@ -89,7 +89,35 @@ public class Main {
 		}		
 		return true;
 	}
-	public static <CalendarSys> void main(String[] args) {
+	/***
+	 * Check if input year is valid or not
+	 * @param input
+	 * @return true if inputStr can be converted successfully into integer，
+	 *   otherwise output "the input must be larger than 1900 or integer" to the console
+	 *   and return false, notice that if the input less than 1900, then there's
+	 *   an error message "the input must be larger than 1900 or integer" and return false.
+	 * * Example: IsCorrectYearsFormat(abc),
+	 *            Console output: input must be integer,
+	 *            Return: false,
+	 * Time estimate: O(1)
+	 */
+	static boolean IsCorrectYearsFormat(String input) {
+		try{
+			if(Integer.valueOf(input) <1900)
+			{
+				System.out.println("the input must be larger than 1900 or integer");
+				return false;
+			}
+			else return true;
+		}
+		catch (NumberFormatException e){
+			System.out.println("input must be integer");
+			return false;
+		}
+
+
+	}
+	public static void main(String[] args) {
 		boolean quit_system = false;
 		char command = 'E';
 		System.out.println("歡迎使用月曆系統 !");
@@ -120,7 +148,7 @@ public class Main {
 			if(command == 'A') {
 				// @Weng
 				System.out.println("\n請輸入欲查詢日期(格式:yyyy-mm-dd)");
-				String date; 
+				String date;
 				do{
 					date = user_input.next();
 				}while(!IsCorrectDateFormat(date));
@@ -133,12 +161,14 @@ public class Main {
 				}
 			}else if(command == 'B') {
 				// @Felix
+				String tmp;
 				System.out.println("\n請輸入欲查詢年(格式:yyyy)&&要大於西元1900年");
 				do{
-					year = user_input.next();
-				}while(!IsCorrectDateFormat(year));
+					tmp = user_input.next();
+				}while(!IsCorrectYearsFormat(tmp));
 				try{
-					CalendarSys calendar = new CalendarSys(date);
+					Integer year = Integer.valueOf(tmp);
+					CalendarSys calendar = new CalendarSys();
 					calendar.Convert(year);
 				}
 				catch(Exception e) {
